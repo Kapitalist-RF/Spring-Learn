@@ -2,17 +2,25 @@ package spring_introduction;
 
 public class Dog implements Pet{
 
-    private String name;
+//    private String name;
     @Override
     public void say(){
         System.out.println("Bow-Wow");
     }
 
-    public String getName() {
-        return name;
+    private void init(){
+        System.out.println("Class Dog: init method");
     }
 
-    public void setName(String name) {
-        this.name = name;
+    protected void destroy(){
+        System.out.println("Class Dog: destroy");
     }
+
+//    public String getName() {
+//        return name;
+//    }
+//
+//    public void setName(String name) {
+//        this.name = name;
+//    }
 }
