@@ -4,8 +4,12 @@ public class Person {
 
     private Pet pet;
 
-    public Person(Pet pet) {
-        this.pet = pet;
+//    public Person(Pet pet) {
+//        this.pet = pet;
+//    }
+
+    public Person() {
+
     }
 
     public void callYourPet(){
@@ -13,4 +17,8 @@ public class Person {
         pet.say();
     }
 
+    public void setPet(Pet pet) {
+        System.out.println("Class Person: setPet");
+        this.pet = pet;
+    }
 }

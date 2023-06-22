@@ -14,8 +14,11 @@
 
     <bean id = "myPerson"
           class="spring_introduction.Person">
+        <property name="pet" ref="myPet"></property>
+
 <!--        конструктор нашего объекта-->
-        <constructor-arg ref="myPet"></constructor-arg>
+<!--        <constructor-arg ref="myPet"></constructor-arg>-->
+
 
 
     </bean>
