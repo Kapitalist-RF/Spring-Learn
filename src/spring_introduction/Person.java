@@ -1,6 +1,7 @@
 package spring_introduction;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component("personBean")
@@ -8,14 +9,16 @@ public class Person {
 
     private String surname;
     private int age;
-    @Autowired
+//    @Autowired
+//    @Qualifier("dogBean")
     private Pet pet;
 
-//    @Autowired
-//    public Person(Pet pet) {
-//        this.pet = pet;
-//    }
-//
+    @Autowired
+    public Person(@Qualifier("dogBean") Pet pet) {
+        System.out.println("Person class: constructor");
+        this.pet = pet;
+    }
+
 ////    public Person() {
 ////
 ////    }
