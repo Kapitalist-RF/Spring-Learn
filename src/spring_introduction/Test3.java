@@ -11,6 +11,8 @@ public class Test3 {
     //    Pet pet = new Dog();
     //    Person person = new Person(pet);
         person.callYourPet();
+        System.out.println(person.getSurname());
+        System.out.println(person.getAge());
 
         context.close();
     }
