@@ -1,8 +1,11 @@
 package aop.aspect;
 
+import aop.Book;
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
@@ -32,9 +35,29 @@ public class LoggingAndSecurityAspect {
 //        System.out.println("beforeGetBookAdvice: попытка получить книгу");
 //    }
 
-    @Before("aop.aspect.MyPointcut.allGetMethod()")
-    public void beforeGetLoggingAdvice(){
+    @Before("aop.aspect.MyPointcut.allAddMethod()")
+    public void beforeAddLoggingAdvice(JoinPoint joinPoint){
+        MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
+        System.out.println("methodSignature = " + methodSignature);
+        System.out.println("methodSignature.getMethod = " + methodSignature.getMethod());
+        System.out.println("methodSignature.getReturnType() = " + methodSignature.getReturnType());
+        System.out.println("methodSignature.getName() = " + methodSignature.getName());
+        if(methodSignature.getName().equals("addBook")){
+            Object[] args = joinPoint.getArgs();
+            for (Object obj : args){
+                if(obj instanceof Book){
+                    Book myBook = (Book) obj;
+                    System.out.println("Информация о книге:" + ((Book) obj).getName() + " "
+                            + myBook.getAuthor() + " " + myBook.getYearOfPublication());
+                }
+                if(obj instanceof String){
+                    System.out.println("Книгу в библитеку добавляет " + obj);
+                }
+            }
+        }
+
         System.out.println("beforeGetLoggingAdvice: логирование попытка получить книгу/журнал");
+        System.out.println("-------------------------------------------------------------------------------------------");
     }
 
 
