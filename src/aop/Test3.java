@@ -12,7 +12,6 @@ public class Test3 {
         System.out.println("В библиотеку вернули книгу: " + bookName);
 
 
-
         context.close();
         System.out.println("method main end");
     }
