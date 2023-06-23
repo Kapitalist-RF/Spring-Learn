@@ -12,10 +12,6 @@ public class Test1 {
 
         uniLibrary.getBook();
         uniLibrary.getMagazine();
-        uniLibrary.returnBook();
-        uniLibrary.returnMagazine();
-        uniLibrary.addBook();
-//        uniLibrary.returnBook();
 
         context.close();
 
