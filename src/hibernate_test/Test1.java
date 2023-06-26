@@ -14,13 +14,15 @@ public class Test1 {
                 .buildSessionFactory();
         try {
             Session session = sessionFactory.getCurrentSession();
-            Employee emp = new Employee("Dima", "Dm", "IT", 500);
+            Employee emp = new Employee("Alexander", "Smirnov", "HR", 450);
             session.beginTransaction();
             session.save(emp);
             session.getTransaction().commit();
         } finally {
             sessionFactory.close();
         }
+
+        System.out.println("Done");
 
 
 
